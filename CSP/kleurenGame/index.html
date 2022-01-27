@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color game</title>
+    <link rel="stylesheet" href="stylesheet/style.css" />
+    <script src="javascript/script.js"></script>
+  </head>
+
+  <body id="body">
+    <div class="container">
+      <table>
+        <tr>
+          <td class="colorblock" id="1">&nbsp;</td>
+          <td class="colorblock" id="2">&nbsp;</td>
+          <td class="colorblock" id="3">&nbsp;</td>
+          <td class="colorblock" id="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="colorblock" id="5">&nbsp;</td>
+          <td class="colorblock" id="6">&nbsp;</td>
+          <td class="colorblock" id="4">&nbsp;</td>
+          <td class="colorblock" id="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="colorblock" id="7">&nbsp;</td>
+          <td class="colorblock" id="8">&nbsp;</td>
+          <td class="colorblock" id="9">&nbsp;</td>
+          <td class="colorblock" id="9">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="4" id="ultrablok">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" onclick="load()" id="start">start</td>
+          <td colspan="2" onclick="stop()" id="stop">stop</td>
+        </tr>
+      </table>
+    </div>
+    <h1 id="score">score</h1>
+  </body>
+</html>
