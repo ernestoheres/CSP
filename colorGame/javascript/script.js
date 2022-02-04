@@ -1,4 +1,4 @@
-var a = {};
+var game = {};
 const colorArr = [
 	"#FF0000",
 	"#FFA500",
@@ -16,78 +16,102 @@ const colorArr = [
 
 //SET/RESET VAR
 function setVars() {
-	a.randomBlock = null;
-	a.ultraBlock = document.getElementById("ultrablock");
-	a.colorBlock = document.getElementsByClassName("colorblock");
-	a.score = document.getElementById("score");
-	a.clickable = true;
-	a.clicked = false;
-	a.started = false;
-	a.goed = 0;
-	a.fout = 0;
-	a.gemist = -1;
-	a.timer = null;
+	game.randomBlock = null;
+	game.ultraBlock = document.getElementById("ultrablock");
+	game.colorBlock = document.getElementsByClassName("colorblock");
+	game.settings = document.getElementById("settings");
+	game.score = document.getElementById("score");
+	game.clickable = true;
+	game.clicked = false;
+	game.started = false;
+	game.goed = 0;
+	game.fout = 0;
+	game.gemist = -1;
+	game.timer = null;
+	game.timeout = document.getElementById("timeout").value;
+	game.loops = document.getElementById("loops").value;
+	game.looptimes = 0;
+	game.basischange = document.getElementById("basis").value;
 }
 
 //LOAD
 function load() {
+	console.log(game.basischange);
 	setVars();
-	if (!a.started) {
+	if (!game.started) {
 		setColors();
 		started = true;
 	}
-	for (var i = 0; i < a.colorBlock.length; i++) {
-		let element = a.colorBlock[i];
+	for (var i = 0; i < game.colorBlock.length; i++) {
+		let element = game.colorBlock[i];
 		element.addEventListener("click", () => {
 			input(element);
 		});
 	}
+	
+console.log(game.timeout)
+console.log(game.loops)
 }
 
 //START
 function setColors() {
-	if (a.clicked == false) {
-		a.gemist += 1;
-		a.score.innerHTML = `Goed: ${a.goed} | Fout: ${a.fout} | Gemist ${a.gemist}`;
+	if (game.clicked == false) {
+		game.gemist += 1;
+		game.score.innerHTML = `Goed: ${game.goed} | Fout: ${game.fout} | Gemist ${game.gemist}`;
 	}
-	a.clicked = false;
-	a.clickable = true;
+	game.clicked = false;
+	game.clickable = true;
 	colorArr.sort(() => Math.random() - Math.random());
-	for (let i = 0; i < a.colorBlock.length; i++) {
-		a.randomBlock = a.colorBlock[Math.floor(Math.random() * a.colorBlock.length)];
-		a.colorBlock[i].style.backgroundColor = colorArr[i];;
-		a.ultraBlock.style.backgroundColor = a.randomBlock.style.backgroundColor;
+	for (let i = 0; i < game.colorBlock.length; i++) {
+		game.randomBlock =
+			game.colorBlock[Math.floor(Math.random() * game.colorBlock.length)];
+		game.colorBlock[i].style.backgroundColor = colorArr[i];
+		game.ultraBlock.style.backgroundColor =
+			game.randomBlock.style.backgroundColor;
 	}
-	a.timer = setTimeout(function () {
-		setColors();
-	}, 2000);
+	if (game.looptimes == game.loops) {}else {
+		game.timer = setTimeout(function () {
+			setColors();
+		}, game.timeout);
+		game.looptimes ++
+	}
 }
 
 //STOP
 function stop() {
-	clearInterval(a.timer);
+	clearInterval(game.timer);
 }
 
 //CLICK CHECK
 function input(element) {
-	a.clicked = true;
-	if (a.clickable === true) {
-		if (element.style.backgroundColor === a.ultraBlock.style.backgroundColor) {
-			a.goed += 1;
+	game.clicked = true;
+	if (game.clickable === true) {
+		if (
+			element.style.backgroundColor === game.ultraBlock.style.backgroundColor
+		) {
+			game.goed ++;
 			new Audio("content/goed.wav").play();
-			for (let i = 0; i < a.colorBlock.length; i++) {
-				const element = a.colorBlock[i];
+			for (let i = 0; i < game.colorBlock.length; i++) {
+				const element = game.colorBlock[i];
 				element.style.backgroundColor = "green";
 			}
 		} else {
-			a.fout += 1;
+			game.fout ++;
 			new Audio("content/bad.wav").play();
-			for (let i = 0; i < a.colorBlock.length; i++) {
-				const element = a.colorBlock[i];
+			for (let i = 0; i < game.colorBlock.length; i++) {
+				const element = game.colorBlock[i];
 				element.style.backgroundColor = "red";
 			}
 		}
-		a.clickable = false;
-		a.score.innerHTML = `Goed: ${a.goed} | Fout: ${a.fout} | Gemist ${a.gemist}`;
+		game.clickable = false;
+		game.score.innerHTML = `Goed: ${game.goed} | Fout: ${game.fout} | Gemist ${game.gemist}`;
+	}
+}
+
+function settings() {
+	if (document.getElementById("settings").className == "settings--disabled") {
+		document.getElementById("settings").className = "settings--enabled";
+	} else {
+		document.getElementById("settings").className = "settings--disabled";
 	}
 }

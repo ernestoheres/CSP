@@ -1,120 +1,149 @@
 html {
-    margin: 0;
-    font-family: "Lato", sans-serif;
+	margin: 0;
+	font-family: "Lato", sans-serif;
 }
 
 body {
-    overflow: hidden;
-    background-color: rgb(71, 69, 69);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+	overflow: hidden;
+	background-color: rgb(71, 69, 69);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	background-image: url("https://i.pinimg.com/originals/f1/63/11/f16311fd0c32786525f471c685bc516e.gif");
 }
 
 .container {
-    width: calc(33vh + 25px);
-    background-color: rgb(0,0,0);
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgb(40,40,40);
-    box-shadow: 0px 0px 10px 10px rgb(40,40,40);
-    align-self: center;
-    position: relative;
-    top: 100px;
+	width: calc(33vh + 26px);
+	background-color: rgb(0, 0, 0);
+	flex-wrap: wrap;
+	background-color: rgb(40, 40, 40);
+	box-shadow: 0px 0px 10px 10px rgb(40, 40, 40);
+	align-self: center;
+	position: relative;
+	top: 100px;
+	display: flex;
 
-    .row{
-        display: flex;
-    }
+	.row {
+		display: flex;
+	}
 
-    .colorblock {
-        width: 11vh;
-        height: 11vh;
-        margin: 4px;
-        background-color: white;
-        position: static;
-    }
+	.colorblock {
+		width: 11vh;
+		height: 11vh;
+		margin: 4px;
+		background-color: white;
+		position: static;
+	}
 
-    .colorblock:hover{
-        animation: transformer .3s;
-        animation-fill-mode: forwards;
-        cursor: pointer;
-    }
+	.colorblock:hover {
+		animation: transformer 0.3s;
+		animation-fill-mode: forwards;
+		cursor: pointer;
+	}
 
-    #ultrablock {
-        width: 100%;
-        height: 10vh;
-        background-color: white;
-        margin: 3px;
-    }
+	#ultrablock {
+		width: 100%;
+		height: 10vh;
+		background-color: white;
+		margin: 3px;
+	}
 
-    #start, #stop {
-        height: 8vh;
-        width: 16.95vh;
-        margin: 3px;
-        line-height: 8vh;
-        font-size: 200%;
-        text-align: center;
-    }
+	#start,
+	#stop {
+		height: 8vh;
+		width: 16.95vh;
+		margin: 3px;
+		line-height: 8vh;
+		font-size: 200%;
+		text-align: center;
+	}
 
-    #start:hover, #stop:hover {
-        animation: transformer .5s;
-        cursor: pointer;
-        animation-fill-mode: forwards;
-        z-index: 2;
-    }
+	#start:hover,
+	#stop:hover {
+		animation: transformer 0.5s;
+		cursor: pointer;
+		animation-fill-mode: forwards;
+		z-index: 2;
+	}
 
-    #start {
-        background-color: green;
-    }
+	#start {
+		background-color: green;
+	}
 
-    #stop {
-        background-color: red;
-    }
+	#stop {
+		background-color: red;
+	}
 
-    @keyframes transformer {
-        0%
-        {
-            transform: scale(100%);
-        }
-        100%
-        {
-            transform: scale(110%);
-        }
-    }
+	@keyframes transformer {
+		0% {
+			transform: scale(100%);
+		}
+		100% {
+			transform: scale(110%);
+		}
+	}
 
-    #score {
-        position: relative;
-        left: 2.5vh;
-        color: rgb(200,200,200);
-        font-size: 2.21vh;
-    }
+	#score {
+		position: relative;
+		left: 2.5vh;
+		color: rgb(200, 200, 200);
+		font-size: 2.21vh;
+	}
 
-    .sets {
-        position: absolute;
-        width:1.8vh;
-        height: 1.8vh;
-        background-color: white;
-        text-align: center;
-        border-radius: 100%;
-        left: 34.5vh;
-        top: -2vh;
-        border: black 2px solid;
-        z-index: 3;
-    }
+	.sets {
+		position: absolute;
+		width: 1.8vh;
+		height: 1.8vh;
+		background-color: white;
+		text-align: center;
+		border-radius: 100%;
+		left: 34.5vh;
+		top: -2vh;
+		border: black 2px solid;
+		z-index: 3;
+		font-size: 1.2vh;
+	}
 
-    .sets:hover{
-        animation: transformer .5s;
-        animation-fill-mode: forwards;
-        cursor: pointer;
-    }
+	.sets:hover {
+		animation: transformer 0.5s;
+		animation-fill-mode: forwards;
+		cursor: pointer;
+	}
 }
 
 .settings {
-    height: 100px;
-    width: 100px;
-    background-color: white;
-    position: absolute;
+	height: 100px;
+	width: 100px;
+	background-color: white;
+	position: absolute;
+}
+
+#settings {
+	width: calc(33vh + 26px);
+	height: 60.5vh;
+	position: absolute;
+	background-color: white;
+	border-radius: 25px;
+	align-self: center;
+	z-index: 3;
+	transition: 1s;
+	border: 2px black solid;
+
+	.settingsTop {
+		background-color: rgb(40, 40, 40);
+		width: 100%;
+		height: 47px;
+		border-radius: 25px 25px 0 0;
+	}
+}
+
+.settings--enabled {
+    top: 100px;
+}
+
+.settings--disabled {
+    top: -680px;
 }

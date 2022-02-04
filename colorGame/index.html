@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color game</title>
-    <link rel="stylesheet" href="stylesheet/style.css" />
-    <script src="javascript/script.js"></script>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Color game</title>
+		<link rel="stylesheet" href="stylesheet/style.css" />
+		<script src="javascript/script.js"></script>
+	</head>
 
-  <body id="body">
-    <div class="container">
-        <div class="sets">⚙️</div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div class="colorblock"></div>
-        <div id="ultrablock"></div>
-        <div id="start" onclick="load()">start</div>
-        <div id="stop" onclick="stop()">stop</div>
-        <h1 id="score">Goed: 0 | Fout: 0 | Gemist 0</h1>     
-    </div>
-    <div class="settings">
-      
-    </div>
-  </body>
+	<body id="body">
+		<div id="settings" class="settings--disabled">
+			<div class="settingsTop"></div>
+			<div class="settingsMain">
+				<br />
+				<form>
+					&nbsp; Aantal ms: <input id="timeout" type="number" value="2000"/><br><br>
+          &nbsp; Aantal loops: <input id="loops" type="number" value="20"/><br><br>
+          &nbsp; <input id="basis" type="checkbox" value="2000"/>Wijzig basiskleur <br><br>
+				</form>
+			</div>
+		</div>
+		<div class="container">
+			<div class="sets" onclick="settings()">⚙️</div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div class="colorblock"></div>
+			<div id="ultrablock"></div>
+			<div id="start" onclick="load()">start</div>
+			<div id="stop" onclick="stop()">stop</div>
+			<h1 id="score">Goed: 0 | Fout: 0 | Gemist 0</h1>
+		</div>
+	</body>
 </html>
