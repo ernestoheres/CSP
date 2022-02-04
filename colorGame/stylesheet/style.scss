@@ -1,0 +1,120 @@
+html {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background-color: rgb(71, 69, 69);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: calc(33vh + 25px);
+    background-color: rgb(0,0,0);
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(40,40,40);
+    box-shadow: 0px 0px 10px 10px rgb(40,40,40);
+    align-self: center;
+    position: relative;
+    top: 100px;
+
+    .row{
+        display: flex;
+    }
+
+    .colorblock {
+        width: 11vh;
+        height: 11vh;
+        margin: 4px;
+        background-color: white;
+        position: static;
+    }
+
+    .colorblock:hover{
+        animation: transformer .3s;
+        animation-fill-mode: forwards;
+        cursor: pointer;
+    }
+
+    #ultrablock {
+        width: 100%;
+        height: 10vh;
+        background-color: white;
+        margin: 3px;
+    }
+
+    #start, #stop {
+        height: 8vh;
+        width: 16.95vh;
+        margin: 3px;
+        line-height: 8vh;
+        font-size: 200%;
+        text-align: center;
+    }
+
+    #start:hover, #stop:hover {
+        animation: transformer .5s;
+        cursor: pointer;
+        animation-fill-mode: forwards;
+        z-index: 2;
+    }
+
+    #start {
+        background-color: green;
+    }
+
+    #stop {
+        background-color: red;
+    }
+
+    @keyframes transformer {
+        0%
+        {
+            transform: scale(100%);
+        }
+        100%
+        {
+            transform: scale(110%);
+        }
+    }
+
+    #score {
+        position: relative;
+        left: 2.5vh;
+        color: rgb(200,200,200);
+        font-size: 2.21vh;
+    }
+
+    .sets {
+        position: absolute;
+        width:1.8vh;
+        height: 1.8vh;
+        background-color: white;
+        text-align: center;
+        border-radius: 100%;
+        left: 34.5vh;
+        top: -2vh;
+        border: black 2px solid;
+        z-index: 3;
+    }
+
+    .sets:hover{
+        animation: transformer .5s;
+        animation-fill-mode: forwards;
+        cursor: pointer;
+    }
+}
+
+.settings {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    position: absolute;
+}
